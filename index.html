@@ -4,9 +4,292 @@
     <meta charset="UTF-8" />
     <title>Smart Campus Assistant – Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Smart Campus Assistant – Prototype</h1>
-    <p>Initial HTML structure for our ATU project.</p>
+<div class="app">
+    <header class="app-header">
+        <div>
+            <h1>Smart Campus Assistant</h1>
+            <p class="subtitle">ATU Galway · The Valyrian Flames</p>
+        </div>
+        <button id="accessibility-toggle" class="secondary-btn" type="button">
+            A+
+        </button>
+    </header>
+
+    <nav class="app-nav">
+        <button class="nav-btn active" data-section="login">Login</button>
+        <button class="nav-btn" data-section="timetable">Timetable</button>
+        <button class="nav-btn" data-section="news">News</button>
+        <button class="nav-btn" data-section="events">Events</button>
+        <button class="nav-btn" data-section="contacts">Contacts</button>
+        <button class="nav-btn" data-section="map">Campus Map</button>
+    </nav>
+
+    <main class="app-main">
+        <!-- LOGIN -->
+        <section id="login" class="section active">
+            <h2>Login with ATU email</h2>
+            <p class="section-intro">
+                Prototype login screen – no real authentication, only demo behaviour.
+            </p>
+
+            <form id="login-form" class="card">
+                <label>
+                    ATU Email
+                    <input type="email" id="login-email" placeholder="student@atu.ie" required />
+                </label>
+
+                <label>
+                    Password
+                    <input type="password" id="login-password" placeholder="••••••••" required />
+                </label>
+
+                <label class="inline">
+                    <input type="checkbox" id="keep-session" />
+                    Keep session active
+                </label>
+
+                <button class="primary-btn" type="submit">Log in</button>
+
+                <p id="login-status" class="status-text"></p>
+            </form>
+
+            <div class="card">
+                <h3>Quick links</h3>
+                <ul class="quick-links">
+                    <li><a href="#" data-open="timetable">Today’s timetable</a></li>
+                    <li><a href="#" data-open="news">Campus news</a></li>
+                    <li><a href="#" data-open="events">Upcoming events</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TIMETABLE -->
+        <section id="timetable" class="section">
+            <h2>Timetable</h2>
+            <p class="section-intro">
+                Week view with simple filter by day (prototype only).
+            </p>
+
+            <div class="card">
+                <label for="day-filter">Filter by day:</label>
+                <select id="day-filter">
+                    <option value="all">All days</option>
+                    <option value="mon">Monday</option>
+                    <option value="tue">Tuesday</option>
+                    <option value="wed">Wednesday</option>
+                    <option value="thu">Thursday</option>
+                    <option value="fri">Friday</option>
+                </select>
+            </div>
+
+            <div class="card table-wrapper">
+                <table class="timetable-table">
+                    <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Module</th>
+                        <th>Room</th>
+                    </tr>
+                    </thead>
+                    <tbody id="timetable-body">
+                    <tr data-day="mon">
+                        <td>Mon</td><td>09:00</td><td>Project Management</td><td>D201</td>
+                    </tr>
+                    <tr data-day="mon">
+                        <td>Mon</td><td>11:00</td><td>Web Development</td><td>Lab 3</td>
+                    </tr>
+                    <tr data-day="tue">
+                        <td>Tue</td><td>10:00</td><td>Databases</td><td>C104</td>
+                    </tr>
+                    <tr data-day="wed">
+                        <td>Wed</td><td>12:00</td><td>Interaction Design</td><td>H210</td>
+                    </tr>
+                    <tr data-day="thu">
+                        <td>Thu</td><td>09:00</td><td>Networking</td><td>Lab 1</td>
+                    </tr>
+                    <tr data-day="fri">
+                        <td>Fri</td><td>10:00</td><td>Project Studio</td><td>D105</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- NEWS -->
+        <section id="news" class="section">
+            <h2>News feed</h2>
+            <p class="section-intro">
+                Simple list of campus news. Click a card to see more details.
+            </p>
+
+            <div class="news-grid">
+                <article class="card news-card" data-title="Library extended hours">
+                    <h3>Library extended hours</h3>
+                    <p>From next week the library will open until 10pm on weekdays.</p>
+                    <button class="secondary-btn view-details-btn" type="button">
+                        View details
+                    </button>
+                </article>
+
+                <article class="card news-card" data-title="New student hub">
+                    <h3>New Student Hub portal</h3>
+                    <p>All services in one place: timetables, fees, support and more.</p>
+                    <button class="secondary-btn view-details-btn" type="button">
+                        View details
+                    </button>
+                </article>
+
+                <article class="card news-card" data-title="Career fair">
+                    <h3>IT Career Fair in Galway</h3>
+                    <p>Meet local and international employers on campus.</p>
+                    <button class="secondary-btn view-details-btn" type="button">
+                        View details
+                    </button>
+                </article>
+            </div>
+
+            <div id="news-details" class="card hidden">
+                <h3 id="news-details-title">News details</h3>
+                <p id="news-details-body">
+                    This panel shows more detailed text for the selected news item.
+                    In a real app content would be loaded from an API.
+                </p>
+            </div>
+        </section>
+
+        <!-- EVENTS -->
+        <section id="events" class="section">
+            <h2>Events</h2>
+            <p class="section-intro">
+                Upcoming events with simple “details” view.
+            </p>
+
+            <div class="card">
+                <ul class="events-list">
+                    <li>
+                        <button class="link-btn event-item"
+                                data-title="First-year welcome meetup"
+                                data-when="Monday · 6pm · Student Hub"
+                                data-desc="Informal meetup for first-year students to connect and ask questions.">
+                            First-year welcome meetup
+                        </button>
+                    </li>
+                    <li>
+                        <button class="link-btn event-item"
+                                data-title="Exam preparation workshop"
+                                data-when="Wednesday · 2pm · Library"
+                                data-desc="Study tips, time management, and past paper review.">
+                            Exam preparation workshop
+                        </button>
+                    </li>
+                    <li>
+                        <button class="link-btn event-item"
+                                data-title="Hackathon weekend"
+                                data-when="Friday–Sunday · Innovation Hub"
+                                data-desc="Team up to build prototypes and win prizes.">
+                            Hackathon weekend
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="event-details" class="card hidden">
+                <h3 id="event-details-title">Event details</h3>
+                <p id="event-details-when"></p>
+                <p id="event-details-desc"></p>
+            </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section id="contacts" class="section">
+            <h2>Contacts</h2>
+            <p class="section-intro">
+                Search staff and pin favourites. Simple department filter.
+            </p>
+
+            <div class="card filters">
+                <label>
+                    Search
+                    <input type="text" id="contact-search" placeholder="Type a name or service…" />
+                </label>
+
+                <label>
+                    Department
+                    <select id="department-filter">
+                        <option value="all">All</option>
+                        <option value="support">Student Support</option>
+                        <option value="it">IT Services</option>
+                        <option value="library">Library</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="contacts-grid">
+                <article class="card contact-card"
+                         data-dept="support"
+                         data-name="Student Services">
+                    <div class="contact-header">
+                        <h3>Student Services</h3>
+                        <button class="icon-btn pin-btn" type="button" aria-label="Pin favourite">
+                            ☆
+                        </button>
+                    </div>
+                    <p>Email: student.services@atu.ie</p>
+                    <p>Phone: +353 (0)91 123 456</p>
+                </article>
+
+                <article class="card contact-card"
+                         data-dept="it"
+                         data-name="IT Helpdesk">
+                    <div class="contact-header">
+                        <h3>IT Helpdesk</h3>
+                        <button class="icon-btn pin-btn" type="button" aria-label="Pin favourite">
+                            ☆
+                        </button>
+                    </div>
+                    <p>Email: it.helpdesk@atu.ie</p>
+                    <p>Phone: +353 (0)91 234 567</p>
+                </article>
+
+                <article class="card contact-card"
+                         data-dept="library"
+                         data-name="Library Desk">
+                    <div class="contact-header">
+                        <h3>Library Desk</h3>
+                        <button class="icon-btn pin-btn" type="button" aria-label="Pin favourite">
+                            ☆
+                        </button>
+                    </div>
+                    <p>Email: library@atu.ie</p>
+                    <p>Phone: +353 (0)91 345 678</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- MAP -->
+        <section id="map" class="section">
+            <h2>Campus Map</h2>
+            <p class="section-intro">
+                Placeholder for the campus map. In the demo you can explain
+                that this would be an interactive map.
+            </p>
+
+            <div class="card map-placeholder">
+                <p>Map placeholder</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Smart Campus Assistant · Prototype v1</p>
+        <p>Team: The Valyrian Flames (Mariia Chalyk &amp; Danil Hordiienko)</p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
