@@ -1,3 +1,43 @@
+The Valyrian Flames – Team Project 📌 Project Overview
+
+This repository contains the work of the Valyrian Flames team for the [Module Name] coursework at Atlantic Technological University. The goal of this project is to practice Scrum methodology by forming a team, assigning roles, setting up collaboration tools, and developing project deliverables throughout the semester.
+
+👥 Team Members
+
+Mariia Chalyk – Product Owner, Tester, Developer
+
+Danil Hordiienko – Scrum Master, Assistant Product Owner, Developer
+
+🛠️ Tools & Setup
+
+As part of the initial team setup, we are using:
+
+GitHub → version control and storing project artefacts.
+
+Jira → sprint planning, backlog management, and task tracking.
+
+Microsoft Project → project timeline and milestone planning.
+
+OneNote → documentation, meeting notes, evidence, and reflections.
+
+🎯 Team Roles & Responsibilities
+
+Product Owner → manages backlog and priorities.
+
+Scrum Master → facilitates Scrum processes and team collaboration.
+
+Tester → ensures quality of deliverables.
+
+Developers → both members contribute to coding and implementation.
+
+🔗 Useful Links
+
+OneNote Shared Notebook: https://atlantictu-my.sharepoint.com/:o:/g/personal/g00437444_atu_ie/Epi-rgeNtbhJhF51YpkdVJUB9GrRLSZoXxhwfL4EOYiaHw?email=Joseph.Corr%40atu.ie&e=yEuWZn
+
+Jira Project: https://thevalyrianflames.atlassian.net/jira/software/projects/VF/boards/2
+
+MS Project File: https://thevalyrianflames.atlassian.net/jira/software/projects/VF/boards/2
+
 # smart-campus-assistant-prototype
 Interactive HTML/CSS/JS prototype for ATU Smart Campus Assistant
 # Smart Campus Assistant – Prototype
