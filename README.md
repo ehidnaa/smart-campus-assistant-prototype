@@ -82,8 +82,8 @@ The prototype simulates:
 ## Evidence
 The repository includes:
 - `/index.html` — main entry point  
-- `/styles.css` — prototype styling  
-- `/scripts.js` — interactions  
+- `/style.css` — prototype styling  
+- `/app.js` — interactions  
 - Screenshots in OneNote  
 - Weekly evidence and sprint breakdown in OneNote  
 
