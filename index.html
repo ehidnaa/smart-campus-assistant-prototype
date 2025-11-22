@@ -175,9 +175,26 @@
         <!-- EVENTS -->
         <section id="events" class="section">
             <h2>Events</h2>
-            <p class="section-intro">
-                Upcoming events with simple “details” view.
-            </p>
+
+    <div class="event-category">
+        <button class="category-btn" data-category="all">All</button>
+        <button class="category-btn" data-category="workshops">Workshops</button>
+        <button class="category-btn" data-category="social">Social</button>
+    </div>
+
+    <div class="events-list">
+        <div class="event-item" data-id="event-1" data-category="workshops">
+            <h3>Exam preparation workshop</h3>
+            <p>Academic building · Monday 5pm</p>
+        <button class="details-btn">Details</button>
+    </div>
+
+    <div class="event-item" data-id="event-2" data-category="social">
+        <h3>First-year welcome meetup</h3>
+        <p>Student Hub · Monday 6pm</p>
+        <button class="details-btn">Details</button>
+    </div>
+    </div>
 
             <div class="card">
                 <ul class="events-list">
