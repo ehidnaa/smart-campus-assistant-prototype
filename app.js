@@ -172,6 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.textContent = pinned ? "★" : "☆";
         });
     });
+    
+    const mapPlaceholder = document.querySelector(".map-placeholder");
+
+    if (mapPlaceholder) {
+    mapPlaceholder.addEventListener("click", () => {
+        alert("Interactive map planned for Sprint 3.");
+    });
+    }
 
     // ========== ACCESSIBILITY ==========
     const accessibilityToggle = document.getElementById("accessibility-toggle");
