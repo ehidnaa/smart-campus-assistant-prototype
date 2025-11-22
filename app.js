@@ -16,7 +16,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-    // ========== QUICK LINKS С ЛОГИНА ==========
+// ========== CATEGORY BUTTONS ==========
+const categoryButtons = document.querySelectorAll(".category-btn");
+const eventItems = document.querySelectorAll(".event-item");
+
+categoryButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const category = btn.dataset.category;
+
+        eventItems.forEach(item => {
+            if (category === "all" || item.dataset.category === category) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+
+
+    // ========== QUICK LINKS ==========
     document.querySelectorAll(".quick-links a").forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
@@ -28,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ========== ФЕЙКОВЫЙ LOGIN ==========
+    // ========== LOGIN ==========
     const loginForm = document.getElementById("login-form");
     const loginStatus = document.getElementById("login-status");
     const keepSessionCheckbox = document.getElementById("keep-session");
@@ -53,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : `Logged in as ${email}.`;
             loginStatus.className = "status-text success";
 
-            // После логина открываем Timetable
+            // after login Timetable
             const timetableBtn = document.querySelector(
                 '.nav-btn[data-section="timetable"]'
             );
@@ -128,6 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    const detailsView = document.getElementById("details-view");
+    const detailsTitle = document.getElementById("details-title");
+    const detailsDescription = document.getElementById("details-description");
+    const closeDetails = document.getElementById("close-details");
+    const allDetailButtons = document.querySelectorAll(".details-btn");
+
+    allDetailButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
+        const parent = e.target.closest("[data-id], [data-target]");
+        const id = parent.dataset.id || parent.dataset.target;
+
+        // Fake placeholder content
+        detailsTitle.textContent = "Details for: " + id;
+        detailsDescription.textContent = "This is a placeholder description for " + id + ".";
+
+        detailsView.classList.remove("details-hidden");
+    });
+    });
+
+closeDetails.addEventListener("click", () => {
+    detailsView.classList.add("details-hidden");
+    });
+
 
     // ========== CONTACTS: SEARCH + FILTER ==========
     const contactSearch = document.getElementById("contact-search");
