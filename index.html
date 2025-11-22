@@ -119,58 +119,51 @@
             </div>
         </section>
 
-        <!-- NEWS -->
-        <section id="news" class="section">
-            <h2>News Feed</h2>
+        <!-- NEWS (Updated Sprint 2 Version) -->
+<section id="news" class="section">
+    <h2>Campus News</h2>
+
+    <!-- Categories -->
+    <div class="news-categories">
+        <button class="chip chip-active" data-category="all">All</button>
+        <button class="chip" data-category="study">Study</button>
+        <button class="chip" data-category="campus">Campus</button>
+        <button class="chip" data-category="events">Events</button>
+    </div>
+
+    <!-- News Cards -->
     <div class="news-list">
-        <div class="news-item" data-target="event-1">
+
+        <article class="card news-card" data-category="campus" data-news-id="news-1">
             <h3>Library extended hours</h3>
             <p>From next week the library will remain open until 10pm.</p>
-        <button class="details-btn">View details</button>
+            <span class="news-meta">Campus · Posted today</span>
+            <button class="secondary-btn" data-open-news="news-1">View details</button>
+        </article>
+
+        <article class="card news-card" data-category="study" data-news-id="news-2">
+            <h3>New Student Hub portal</h3>
+            <p>The new Hub collects timetables, fees, support and more.</p>
+            <span class="news-meta">Study · Posted yesterday</span>
+            <button class="secondary-btn" data-open-news="news-2">View details</button>
+        </article>
+
+        <article class="card news-card" data-category="events" data-news-id="news-3">
+            <h3>IT Career Fair in Galway</h3>
+            <p>Meet local and international employers on campus.</p>
+            <span class="news-meta">Events · Posted 2 days ago</span>
+            <button class="secondary-btn" data-open-news="news-3">View details</button>
+        </article>
+
     </div>
 
-    <div class="news-item" data-target="event-2">
-        <h3>New Student Hub portal</h3>
-        <p>All services in one place: timetables, fees, support and more.</p>
-        <button class="details-btn">View details</button>
+    <!-- News Details -->
+    <div id="news-details" class="card hidden details-panel">
+        <h3 id="news-details-title"></h3>
+        <p id="news-details-body"></p>
+        <button class="secondary-btn" id="close-news-details">Close</button>
     </div>
-    </div>
-
-
-            <div class="news-grid">
-                <article class="card news-card" data-title="Library extended hours">
-                    <h3>Library extended hours</h3>
-                    <p>From next week the library will open until 10pm on weekdays.</p>
-                    <button class="secondary-btn view-details-btn" type="button">
-                        View details
-                    </button>
-                </article>
-
-                <article class="card news-card" data-title="New student hub">
-                    <h3>New Student Hub portal</h3>
-                    <p>All services in one place: timetables, fees, support and more.</p>
-                    <button class="secondary-btn view-details-btn" type="button">
-                        View details
-                    </button>
-                </article>
-
-                <article class="card news-card" data-title="Career fair">
-                    <h3>IT Career Fair in Galway</h3>
-                    <p>Meet local and international employers on campus.</p>
-                    <button class="secondary-btn view-details-btn" type="button">
-                        View details
-                    </button>
-                </article>
-            </div>
-
-            <div id="news-details" class="card hidden">
-                <h3 id="news-details-title">News details</h3>
-                <p id="news-details-body">
-                    This panel shows more detailed text for the selected news item.
-                    In a real app content would be loaded from an API.
-                </p>
-            </div>
-        </section>
+    </section>
 
         <!-- EVENTS -->
         <section id="events" class="section">
