@@ -16,6 +16,111 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// --- Sprint 2: News & Events interactions (by Danil Hordiienko) ---
+
+// News category filter
+const categoryButtons = document.querySelectorAll('.news-categories .chip');
+const newsCards = document.querySelectorAll('.news-card');
+
+categoryButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const category = btn.dataset.category;
+
+    // активная кнопка
+    categoryButtons.forEach(b => b.classList.remove('chip-active'));
+    btn.classList.add('chip-active');
+
+    // фильтрация карточек
+    newsCards.forEach(card => {
+      const cardCategory = card.dataset.category;
+      if (category === 'all' || cardCategory === category) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Simple details data for News / Events
+const NEWS_DETAILS = {
+  'news-1': {
+    title: 'Library extended hours',
+    body: 'From next week the library will be open until 10pm on weekdays. Extra study spaces will also be available.'
+  },
+  'news-2': {
+    title: 'New Student Hub portal',
+    body: 'The new portal combines timetables, fees, support, and forms in a single place for all ATU students.'
+  },
+  'news-3': {
+    title: 'IT Career Fair in Galway',
+    body: 'Meet employers from local and international tech companies, bring your CV and talk about internships.'
+  }
+};
+
+const EVENT_DETAILS = {
+  'event-1': {
+    title: 'First-year welcome meetup',
+    body: 'An informal meetup organised by older students to help first-years ask questions and make friends.'
+  },
+  'event-2': {
+    title: 'Exam preparation workshop',
+    body: 'A workshop focused on revision schedules, stress management, and study techniques before exams.'
+  },
+  'event-3': {
+    title: 'Hackathon weekend',
+    body: 'A 24-hour hackathon where teams build a small prototype. Food and prizes are provided.'
+  }
+};
+
+// Open news details
+const newsDetailsPanel = document.getElementById('news-details');
+const newsDetailsTitle = document.getElementById('news-details-title');
+const newsDetailsBody = document.getElementById('news-details-body');
+const closeNewsDetailsBtn = document.getElementById('close-news-details');
+
+document.querySelectorAll('[data-open-news]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.openNews;
+    const data = NEWS_DETAILS[id];
+    if (!data) return;
+
+    newsDetailsTitle.textContent = data.title;
+    newsDetailsBody.textContent = data.body;
+    newsDetailsPanel.hidden = false;
+    newsDetailsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+closeNewsDetailsBtn.addEventListener('click', () => {
+  newsDetailsPanel.hidden = true;
+});
+
+// Open event details
+const eventDetailsPanel = document.getElementById('event-details');
+const eventDetailsTitle = document.getElementById('event-details-title');
+const eventDetailsBody = document.getElementById('event-details-body');
+const closeEventDetailsBtn = document.getElementById('close-event-details');
+
+document.querySelectorAll('[data-open-event]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.openEvent;
+    const data = EVENT_DETAILS[id];
+    if (!data) return;
+
+    eventDetailsTitle.textContent = data.title;
+    eventDetailsBody.textContent = data.body;
+    eventDetailsPanel.hidden = false;
+    eventDetailsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+closeEventDetailsBtn.addEventListener('click', () => {
+  eventDetailsPanel.hidden = true;
+});
+
+// (navigation flow is already handled above – this block just enriches Sprint 2 pages)
+
 // ========== CATEGORY BUTTONS ==========
 const categoryButtons = document.querySelectorAll(".category-btn");
 const eventItems = document.querySelectorAll(".event-item");
