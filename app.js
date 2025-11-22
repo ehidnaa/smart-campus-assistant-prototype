@@ -1,23 +1,20 @@
-// Запускаем код только после загрузки DOM
 document.addEventListener("DOMContentLoaded", () => {
-    // ========== НАВИГАЦИЯ МЕЖДУ СЕКЦИЯМИ ==========
     const navButtons = document.querySelectorAll(".nav-btn");
-    const sections = document.querySelectorAll(".section");
+    const sections = document.querySelectorAll(".app-section");
 
-    if (navButtons.length && sections.length) {
-        navButtons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                const targetId = btn.dataset.section;
+    navButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const target = btn.dataset.section;
 
-                navButtons.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
+            navButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
 
-                sections.forEach(sec => {
-                    sec.classList.toggle("active", sec.id === targetId);
-                });
+            sections.forEach(sec => {
+                sec.classList.toggle("active", sec.id === target);
             });
         });
-    }
+    });
+});
 
     // ========== QUICK LINKS С ЛОГИНА ==========
     document.querySelectorAll(".quick-links a").forEach(link => {
