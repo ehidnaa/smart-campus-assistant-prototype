@@ -26,6 +26,10 @@ body.large-text {
     font-size: 18px;
 }
 
+body.large-text .app {
+    line-height: 1.6;
+}
+
 .app {
     max-width: 480px;
     margin: 0 auto;
